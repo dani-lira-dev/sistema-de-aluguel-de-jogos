@@ -25,4 +25,12 @@ INSERT INTO carros (modelo, marca, preco) VALUES
 -- Consultar os dados da tabela
 SELECT id, modelo, marca, preco FROM carros;
 
+CREATE TABLE jogos(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(150),
+    TIPO VARCHAR(30)
+    );
+    
+SELECT id, nome, tipo FROM jogos;
+
 
