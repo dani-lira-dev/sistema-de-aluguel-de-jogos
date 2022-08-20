@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.proway.exemplos.orientacao.objetos.banco.dados03;
+package br.com.proway.exemplos.orientacao.objetos.banco.dados03.views;
 
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.views.CadastroJogoJFrame;
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.servicos.JogoServico;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

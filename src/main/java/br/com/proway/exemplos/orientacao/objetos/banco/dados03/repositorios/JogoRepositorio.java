@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.proway.exemplos.orientacao.objetos.banco.dados03;
+package br.com.proway.exemplos.orientacao.objetos.banco.dados03.repositorios;
 
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.daos.JogoDao;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -11,16 +12,10 @@ import java.util.ArrayList;
  *
  * @author 71398
  */
-public class JogoRepositorio implements JogoRepositorioInterface {
-
-    //Aqui o banco só está idealizado
-    private BancoDadosConexao bancoDadosConexao;
-
-    // Ele só se torna "real" com um construtor, sem isso o retorno NullPointerException. 
-    //Construtor:definir informações primordiais
-    public JogoRepositorio() {
-        bancoDadosConexao = new BancoDadosConexao();
-    }
+    //Essa classe tem que honrar(implementar)os contratos que estão estipulados na interface
+public class JogoRepositorio 
+        extends RepositorioBase
+        implements JogoRepositorioInterface {   
 
     @Override
     public int cadastrar(JogoDao jogo) {

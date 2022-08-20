@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.proway.exemplos.orientacao.objetos.banco.dados03;
+package br.com.proway.exemplos.orientacao.objetos.banco.dados03.views;
 
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.servicos.JogoServico;
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.daos.JogoDao;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,21 +13,24 @@ import javax.swing.JOptionPane;
  * @author 71398
  */
 public class CadastroJogoJFrame extends javax.swing.JFrame {
-    
+
     private JogoServico jogoServico;
     private int idParaEditar;
+
     /**
      * Creates new form CadastroJogoJFrame
      */
+    // modo cadastro
     public CadastroJogoJFrame() {
         initComponents();
-        
+
         jogoServico = new JogoServico();
     }
 
+    // modo para atualizar
     CadastroJogoJFrame(JogoDao jogo) {
         this(); //Executar o construtor definido acima
-        
+
         jTextFieldNome.setText(jogo.getNome());
         jComboBoxTipo.setSelectedItem(jogo.getTipo());
         idParaEditar = jogo.getId();
@@ -112,21 +117,31 @@ public class CadastroJogoJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         var nome = jTextFieldNome.getText();
         var tipo = jComboBoxTipo.getSelectedItem().toString();
-        
-        var id = jogoServico.adicionar(nome, tipo);
-        
-        if (id != -1){
-            JOptionPane.showMessageDialog(this, "Jogo cadastrado com sucesso");
-            dispose();
-        }     
-        
-        
+
+        //Verificar se é o modo de3 cadastro, ou seja, deve realizar um Insert na tabela de jogos
+        if (idParaEditar == 0) {
+            var id = jogoServico.adicionar(nome, tipo);
+
+            if (id != -1) {
+                JOptionPane.showMessageDialog(this, "Jogo cadastrado com sucesso");
+                dispose();
+            }
+
+        }else{
+            //se ele cair nesse else, ele está em modo de edição, ou seja, deve realizar um Update na tabela de jogos
+            var alterou = jogoServico.atualizar(idParaEditar, nome, tipo);
+            
+            if(alterou) {
+                JOptionPane.showMessageDialog(this, "Jogo alterado com sucesso");
+                dispose();
+            }
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     /**

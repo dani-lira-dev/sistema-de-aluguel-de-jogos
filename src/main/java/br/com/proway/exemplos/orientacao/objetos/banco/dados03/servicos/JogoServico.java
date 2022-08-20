@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.proway.exemplos.orientacao.objetos.banco.dados03;
+package br.com.proway.exemplos.orientacao.objetos.banco.dados03.servicos;
 
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.repositorios.JogoRepositorio;
+import br.com.proway.exemplos.orientacao.objetos.banco.dados03.daos.JogoDao;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +33,15 @@ public class JogoServico implements JogoServicoInterface {
 
     @Override
     public boolean atualizar(int id, String nome, String tipo) {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       var jogo = new JogoDao();
+       jogo.setId(id);
+       jogo.setNome(nome);
+       jogo.setTipo(tipo);
+       
+       var atualizou = jogoRepositorio.atualizar(jogo);
+       
+       return atualizou;
+       
     }
 
     @Override
