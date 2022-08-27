@@ -1,18 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.proway.exemplos.orientacao.objetos.banco.dados03.daos;
 
-/**
- *
- * @author 71398
- */
+// DAO: Data Access Object (representação do objeto contido em tabela)
 public class JogoDao {
-    //Atributos
+    // Atributos
     private int id;
     private String nome;
     private String tipo;
+    
+    // Método chamado quando o objeto jogo é apresentado.
+    // Representação do objeto.
+    @Override
+    public String toString(){
+        return nome;
+    }
 
     public int getId() {
         return id;
@@ -37,6 +37,4 @@ public class JogoDao {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    
 }

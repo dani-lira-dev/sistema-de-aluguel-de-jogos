@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.proway.exemplos.orientacao.objetos.interfaces;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author 71398
- */
 public class InstalacaoServico implements InstalacaoServicoInterface {
 
     private ArrayList<Instalacao> instalacoes;
@@ -23,24 +15,32 @@ public class InstalacaoServico implements InstalacaoServicoInterface {
 
     @Override
     public void adicionar(Instalacao instalacao) {
-        //Registrar esse serviço de instalação na lista de instalações
+        // Registrar este serviço de instalação na lista de 
+        // instalações
+        
         instalacao.setId(++indiceId);
-
+        
         instalacoes.add(instalacao);
     }
 
     @Override
     public void editar(Instalacao instalacao) {
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void apagar(int id) {
-        for (var instalacao : instalacoes) {
-            if (instalacao.getId() == id) {
-                //Remove a instalação pois conseguiu encontrar uma instalação com id desejado
+        // Percorrer a lista de instalações para remover 
+        // a instalação com o id desejado
+        for(var instalacao : instalacoes){
+            if(instalacao.getId() == id){
+                // Remove a instalação pois conseguiu encontrar
+                // uma instalação com o id desejado
                 instalacoes.remove(instalacao);
-                //return neste caso é utilizado para encerrar o foreach, pois já foi encontrado a instalção com id desejado, ou seja, não deveria existir outra instalação com este id.
+                // return neste caso é utilizado para encerrar 
+                // o foreach, pois já foi encontrado a instalação 
+                // com o id desejado, ou seja, não deveria existir 
+                // outra instalação com este id.
                 return;
             }
         }
@@ -48,12 +48,12 @@ public class InstalacaoServico implements InstalacaoServicoInterface {
 
     @Override
     public Instalacao obterPorId(int id) {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public ArrayList<Instalacao> obterTodos() {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

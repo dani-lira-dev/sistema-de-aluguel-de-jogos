@@ -3,6 +3,7 @@ package br.com.proway.exemplos.orientacao.objetos.interfaces;
 import java.time.LocalDateTime;
 
 public class Instalacao {
+
     private int id;
     private String tipo;
     private double valor;
@@ -12,7 +13,11 @@ public class Instalacao {
     public int getId() {
         return id;
     }
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -43,10 +48,6 @@ public class Instalacao {
 
     public void setDataHoraAgendada(LocalDateTime dataHoraAgendada) {
         this.dataHoraAgendada = dataHoraAgendada;
-    }    
-
-    void setId(int indiceId) {
-        this.id = indiceId;
     }
 
 }

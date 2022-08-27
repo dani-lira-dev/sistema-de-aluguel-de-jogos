@@ -1,33 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.proway.exemplos.orientacao.objetos.banco.dados03.servicos;
 
 import br.com.proway.exemplos.orientacao.objetos.banco.dados03.repositorios.JogoRepositorio;
 import br.com.proway.exemplos.orientacao.objetos.banco.dados03.daos.JogoDao;
 import java.util.ArrayList;
 
-/**
- *
- * @author 71398
- */
 public class JogoServico implements JogoServicoInterface {
+
     private JogoRepositorio jogoRepositorio;
-    
-    public JogoServico(){
+
+    public JogoServico() {
         jogoRepositorio = new JogoRepositorio();
     }
-    
-    
+
     @Override
     public int adicionar(String nome, String tipo) {
         var jogo = new JogoDao();
         jogo.setNome(nome);
         jogo.setTipo(tipo);
-        
+
         var id = jogoRepositorio.cadastrar(jogo);
-        
+
         return id;
     }
 
@@ -41,14 +33,13 @@ public class JogoServico implements JogoServicoInterface {
        var atualizou = jogoRepositorio.atualizar(jogo);
        
        return atualizou;
-       
     }
 
     @Override
     public boolean apagar(int id) {
-       var apagou = jogoRepositorio.apagar(id);
-       
-       return apagou;
+        var apagou = jogoRepositorio.apagar(id);
+
+        return apagou;
     }
 
     @Override
@@ -60,9 +51,8 @@ public class JogoServico implements JogoServicoInterface {
 
     @Override
     public ArrayList<JogoDao> obterTodos() {
-       var jogos = jogoRepositorio.obterTodos();
-               
-        return jogos; 
+        var jogos = jogoRepositorio.obterTodos();
+
+        return jogos;
     }
-    
 }

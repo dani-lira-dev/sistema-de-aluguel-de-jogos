@@ -1,23 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.proway.exemplos.orientacao.objetos.banco.dados03.daos;
 
 import java.time.LocalDateTime;
 
-/**
- *
- * @author 71398
- */
-
-//Dasta Access Objetct
+//Data Access Object
 public class AluguelDao {
     private int id;
     private String cliente;
     private LocalDateTime dataHoraAluguel;
     private LocalDateTime dataHoraDevolucao;
     
+    
+    @Override
+    public String toString(){
+        return getCliente() + " - " + getJogo().getNome();
+    }
     private JogoDao jogo;
 
     public int getId() {
@@ -59,5 +55,4 @@ public class AluguelDao {
     public void setJogo(JogoDao jogo) {
         this.jogo = jogo;
     }
-    
 }

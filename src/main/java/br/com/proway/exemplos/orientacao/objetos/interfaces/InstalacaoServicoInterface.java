@@ -13,6 +13,4 @@ public interface InstalacaoServicoInterface {
     Instalacao obterPorId(int id);
 
     ArrayList<Instalacao> obterTodos();
-    
 }
-
